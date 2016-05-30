@@ -11,7 +11,7 @@ namespace AddressBooks_Main
         static Loggers logger;
         static void Main(string[] args)
         {
-            AddressBook addressBook = new AddressBook();
+            AddressBook addressBook = AddressBook.GetInstance();
             addressBook.UserAdded += new EventHandler(UserAddedEvent);
             addressBook.UserRemoved += new EventHandler(UserRemovedEvent);
 

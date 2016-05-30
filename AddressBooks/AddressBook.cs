@@ -6,14 +6,24 @@ namespace AddressBooks
 {
     public class AddressBook
     {
-        List<Users> addresses;
-        public AddressBook()
+        //Singleton (Early instance creation)
+        private static AddressBook instance = new AddressBook();
+
+        private AddressBook()
         {
             addresses = new List<Users>();
         }
+
+        List<Users> addresses;
+        public static AddressBook GetInstance()
+        {
+            //Return the instance
+            return instance;
+        }
+
         private readonly string lastName = string.Empty;
 
-        //Події при додаванні та видаленні користувача
+        //Events during add and remove users
         public event EventHandler UserAdded;
         public event EventHandler UserRemoved;
          
